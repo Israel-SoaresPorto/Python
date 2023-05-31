@@ -1,15 +1,13 @@
 from random import choice as rand
 
 listas_palavras = ['banana', 'morango', 'acerola', 'laranja', 'tangerina',
-                     'goiaba']
+                   'goiaba']
 
 palavra_secreta = rand(listas_palavras)
 
-listas_palavra_secreta = ["_" for i in range(len(palavra_secreta))]
+lista_palavra_secreta = ["_" for i in range(len(palavra_secreta))]
 
 tentativas = 5
-
-acertos = 0
 
 print("BEM-VINDO AO JOGO DA FORCA")
 print(f'VOÇÊ TÊM {tentativas} TENTATIVAS PARA DESCOBRIR A PALAVRA SECRETA')
@@ -29,21 +27,19 @@ while tentativas > 0:
 
         for l in range(len(palavra_secreta)):
             if letra in palavra_secreta[l]:
-               listas_palavra_secreta[l] = letra
-               acertos += 1
+                lista_palavra_secreta[l] = letra
     else:
         print('ops, voçê errou!')
         tentativas -= 1
 
-    print(listas_palavra_secreta)
+    print(lista_palavra_secreta)
 
-    if acertos == len(palavra_secreta):               
+    if "_" not in lista_palavra_secreta:
         print(f'PARABENS, VOÇÊ ADIVINHOU A PALAVRA SECRETA: {palavra_secreta}')
-        print('FIM DE JOGO.')
         break
 
     if tentativas == 0:
         print('QUE PENA, SUAS TENTATIVAS ACABARAM E VOÇÊ NÃO DESCOBRIU A' +
               f'PALAVRA SECRETA: {palavra_secreta}')
-        print('FIM DE JOGO.')
 
+print('FIM DE JOGO.')
